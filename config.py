@@ -1,2 +1,2 @@
-TOKEN = '5568361177:AAFKUa5EL21IZkuG7_ag6vAdnLZsxmb52Ak'
+TOKEN = '5465935492:AAERUjSD4O_ubs6zaTCgMTPujMUgCjSECp0'
 URL_APP = 'https://icepalacebot.herokuapp.com/'
