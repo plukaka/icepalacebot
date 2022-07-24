@@ -1,3 +1,6 @@
+#выложен на hiroku
+#plukaka@yandex.kg
+
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
@@ -44,7 +47,7 @@ async def echo_send(message : types.Message):
 #Приветствие нового участника группы
 @dp.message_handler(content_types=['new_chat_members'])
 async def new_chat(message : types.Message):
-	await message.answer('Добро пожаловать!')
+	await message.answer('Приветствуем! Ты стал членом нашего дружного вратарского чата! Здесь ты сможешь обсудить, поболтать и поныть. Но учти оскорбления и мат запрещены!')
 
 #Удаление сообщения о том, что пользователь ушел.исключен из группы
 @dp.message_handler(content_types=['left_chat_members'])
