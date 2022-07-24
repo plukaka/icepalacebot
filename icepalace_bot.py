@@ -53,7 +53,7 @@ async def left_chat(message : types.Message):
 
 
 #executor.start_polling(dp, skip_updates = True, on_startup=on_startup)
-executor._start_webhook(
+executor.start_webhook(
 	dispatcher=dp,
 	webhook_path='',
 	on_startup=on_startup,
