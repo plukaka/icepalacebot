@@ -1,1 +1,1 @@
-worker: python icepalace_bot.py
+web: python icepalace_bot.py

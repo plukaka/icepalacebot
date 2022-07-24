@@ -2,15 +2,25 @@ from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 
+import config
+
 import os, json, string
 
-bot = Bot(token=os.getenv('TOKEN'))
+bot = Bot(token=config.TOKEN)
 dp = Dispatcher(bot)
+
+async def on_startup(dp):
+	await bot.set_webhook(config.URL_APP)
+
+async def on_shutdown(dp):
+	await bot.delete_webhook()
+
+
 
 #функция для показа в консоли сообщения, пишем тут и добавляем
 #внизу в executor on_startup=on_startup
-async def on_startup(_):
-	print('Бот вышел в онлайн')
+#async def on_startup(_):
+#	print('Бот вышел в онлайн')
 
 '''******** КЛИЕНТСКАЯ ЧАСТЬ **********'''
 
@@ -42,5 +52,12 @@ async def left_chat(message : types.Message):
 	await message.delete()
 
 
-executor.start_polling(dp, skip_updates = True, on_startup=on_startup)
-
+#executor.start_polling(dp, skip_updates = True, on_startup=on_startup)
+executor._start_webhook(
+	dispatcher=dp,
+	webhook_path='',
+	on_startup=on_startup,
+	on_shutdown=on_shutdown,
+	skip_updates=True,
+	host="0.0.0.0",
+	port=int(os.environ.get("PORT", 5000)))
