@@ -41,7 +41,7 @@ async def commands_start(message : types.Message):
 async def echo_send(message : types.Message):
 	if {i.lower().translate(str.maketrans('', '', string.punctuation)) for i in message.text.split(' ')}\
 		.intersection(set(json.load(open('cenz.json')))) != set():
-		await message.reply('Маты запрещены!')
+		await message.reply('Мат запрещен!')
 		#await message.delete()
 
 #Приветствие нового участника группы
